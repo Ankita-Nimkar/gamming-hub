@@ -1,7 +1,6 @@
-import React from "react";
-
+import { Button } from "@chakra-ui/react";
 const App = () => {
-  return <div>App</div>;
+  return <Button>Click me</Button>;
 };
 
 export default App;
