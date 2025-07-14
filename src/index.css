@@ -1,3 +1,8 @@
-body {
-  padding: 20px 0;
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.css-1y0e7gb {
+  max-width: 500px;
 }
