@@ -1,14 +1,13 @@
 import logo from "../assets/logo.webp";
-import { useColorMode, Box } from "@chakra-ui/react";
-import { Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { Input, InputGroup, InputLeftElement, HStack } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { Switch } from "@chakra-ui/react";
+import ColorModeSwitch from "./ColorModeSwitch";
 const NavBar = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <>
+    <HStack spacing={4} justifyContent="space-between">
       <Box display={{ base: "none", lg: "block" }}>
-        <img src={logo} width={80} />
+        <img src={logo} width={60} />
       </Box>
 
       <InputGroup className="input-group">
@@ -23,14 +22,9 @@ const NavBar = () => {
         />
       </InputGroup>
       <Box>
-        {" "}
-        <Switch
-          colorScheme={colorMode === "light" ? "green" : "purple"}
-          isChecked={colorMode === "dark"}
-          onChange={toggleColorMode}
-        />
+        <ColorModeSwitch />
       </Box>
-    </>
+    </HStack>
   );
 };
 
