@@ -1,5 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import GamesGrid from "./components/GamesGrid";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
       </GridItem>
 
       <GridItem area="main" className="main">
-        Main
+        <GamesGrid />
       </GridItem>
     </Grid>
   );
