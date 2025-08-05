@@ -6,21 +6,23 @@ import ColorModeSwitch from "./ColorModeSwitch";
 const NavBar = () => {
   return (
     <HStack spacing={4} justifyContent="space-between">
-      <Box display={{ base: "none", lg: "block" }}>
+      <Box>
         <img src={logo} width={60} />
       </Box>
+      <form className="navbar-form">
+        <InputGroup className="input-group" width="100%">
+          <InputLeftElement pointerEvents="none">
+            <SearchIcon color="gray.300" />
+          </InputLeftElement>
+          <Input
+            name="search-game"
+            type="text"
+            placeholder="Search..."
+            className="search-game"
+          />
+        </InputGroup>
+      </form>
 
-      <InputGroup className="input-group">
-        <InputLeftElement pointerEvents="none">
-          <SearchIcon color="gray.300" />
-        </InputLeftElement>
-        <Input
-          name="search-game"
-          type="text"
-          placeholder="Search..."
-          className="search-game"
-        />
-      </InputGroup>
       <Box>
         <ColorModeSwitch />
       </Box>

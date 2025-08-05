@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
-interface Game {
+
+export interface Game {
   id: number;
   name: string;
+  background_image: string;
+  metacritic: number;
 }
 interface fetchGameResponse {
   count: number;
@@ -10,7 +13,7 @@ interface fetchGameResponse {
 }
 useState;
 const useGames = () => {
-  const [games, setGames] = useState<Game[]>([]);
+  const [games, setGames] = useState<Game[]>();
   const [error, setError] = useState("");
 
   useEffect(() => {
