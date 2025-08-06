@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
-
+export interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
 export interface Game {
   id: number;
   name: string;
   background_image: string;
   metacritic: number;
+  parent_platforms: { platform: Platform }[];
 }
 interface fetchGameResponse {
   count: number;
@@ -20,6 +25,7 @@ const useGames = () => {
     apiClient
       .get<fetchGameResponse>("/games")
       .then((res) => {
+        console.log(res.data.results);
         setGames(res.data.results);
       })
       .catch((err) => setError(err.message));
