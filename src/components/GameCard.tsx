@@ -6,9 +6,9 @@ import {
   Heading,
   Stack,
   Image,
-  Badge,
 } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
+import CriticScore from "./CriticScore";
 interface Props {
   game: Game;
 }
@@ -24,7 +24,7 @@ const GameCard = ({ game }: Props) => {
               platforms={game.parent_platforms.map((p) => p.platform)}
               key={game.id}
             />
-            <Badge colorScheme="green">{game.metacritic}</Badge>
+            <CriticScore score={game.metacritic} />
           </HStack>
           <Heading size="md">{game.name}</Heading>
         </Stack>
