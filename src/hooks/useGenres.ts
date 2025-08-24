@@ -1,33 +1,28 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
-export interface Platform {
+
+export interface Genres {
   id: number;
   name: string;
-  slug: string;
+  image_background: string;
+  description: string;
 }
-export interface Game {
-  id: number;
-  name: string;
-  background_image: string;
-  metacritic: number;
-  parent_platforms: { platform: Platform }[];
-}
-interface fetchGameResponse {
+interface fetchGenresResponse {
   count: number;
-  results: Game[];
+  results: Genres[];
 }
-useState;
-const useGames = () => {
-  const [games, setGames] = useState<Game[]>();
+
+const useGenres = () => {
+  const [genres, setGenres] = useState<Genres[]>();
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
     apiClient
-      .get<fetchGameResponse>("/games")
+      .get<fetchGenresResponse>("/genres")
       .then((res) => {
         console.log(res.data.results);
-        setGames(res.data.results);
+        setGenres(res.data.results);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -35,7 +30,7 @@ const useGames = () => {
         setIsLoading(false);
       });
   }, []);
-  return { games, error, isLoading };
+  return { genres, error, isLoading };
 };
 
-export default useGames;
+export default useGenres;

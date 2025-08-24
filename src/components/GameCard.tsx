@@ -12,11 +12,11 @@ import CriticScore from "./CriticScore";
 interface Props {
   game: Game;
 }
-
+import getImageUrl from "../services/image-url";
 const GameCard = ({ game }: Props) => {
   return (
     <Card maxW="sm" key={game.id} borderRadius={10} overflow="hidden">
-      <Image src={game.background_image} />
+      <Image src={getImageUrl(game.background_image)} />
       <CardBody>
         <Stack>
           <HStack justifyContent="space-between">
